@@ -172,8 +172,7 @@ ci::Vec3f GpuParticlesApp::computeAttractorPositionWithRay( ci::Vec2i pos )
 
 void GpuParticlesApp::mouseMove( MouseEvent event )
 {
-
-	mMousePos.set(computeAttractorPositionWithRay(vent.getPos()));
+	mMousePos.set(event.getPos());
 }
 
 void GpuParticlesApp::onDepthData( Surface16u surface, const KinectSdk::DeviceOptions& deviceOptions )
@@ -227,11 +226,11 @@ void GpuParticlesApp::update()
 
 void GpuParticlesApp::draw()
 {
-	gl::enableAlphaBlending();
+	//gl::enableAlphaBlending();
 	gl::setMatrices( mMayaCam.getCamera() );
 	gl::setViewport( getWindowBounds() );
 	gl::clear( Color::black() );
-	glPointSize(8.0f);
+	glPointSize(1.0f);
 	mPingPongFbo.bindTexture(0);
 	mPingPongFbo.bindTexture(1);
 
@@ -246,7 +245,7 @@ void GpuParticlesApp::draw()
 	gl::setMatricesWindow(getWindowSize());
 	gl::drawString( toString( PARTICLES*PARTICLES ) + " vertices", Vec2f(32.0f, 32.0f));
 	gl::drawString( toString((int) getAverageFps()) + " fps", Vec2f(32.0f, 52.0f));
-	gl::disableAlphaBlending();
+	//gl::disableAlphaBlending();
 
 }
 

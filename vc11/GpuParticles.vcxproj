@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
@@ -50,7 +50,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\blocks\Cinder-MsKinect\src;$(KINECTSDK10_DIR)\inc;..\include;..\..\..\\include;..\..\..\\boost</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(CINDER_DIR)\blocks\MsKinect\src;$(KINECTSDK10_DIR)\inc;..\include;$(CINDER_DIR)\include;$(CINDER_DIR)\boost</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NOMINMAX;_WIN32_WINNT=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -61,11 +61,11 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>"..\..\..\include";..\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(CINDER_DIR)\include;..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>Kinect10.lib;cinder_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"..\..\..\\lib";"..\..\..\\lib\msw";$(KINECTSDK10_DIR)\lib\x86</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(CINDER_DIR)\lib;$(CINDER_DIR)\lib\msw;$(KINECTSDK10_DIR)\lib\x86</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -107,12 +107,12 @@
     <ResourceCompile Include="Resources.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\blocks\Cinder-MsKinect\src\Kinect.cpp" />
+    <ClCompile Include="..\..\..\..\dev\cinder_0.8.5_vc2012\blocks\MsKinect\src\Kinect.cpp" />
     <ClCompile Include="..\src\GpuParticlesApp.cpp" />
     <ClCompile Include="..\src\PingPongFbo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\blocks\Cinder-MsKinect\src\Kinect.h" />
+    <ClInclude Include="..\..\..\..\dev\cinder_0.8.5_vc2012\blocks\MsKinect\src\Kinect.h" />
     <ClInclude Include="..\include\GpuParticlesApp.h" />
     <ClInclude Include="..\include\PingPongFbo.h" />
     <ClInclude Include="..\include\Resources.h" />

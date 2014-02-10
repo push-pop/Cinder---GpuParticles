@@ -33,7 +33,7 @@
     <ClCompile Include="..\src\PingPongFbo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\blocks\Cinder-MsKinect\src\Kinect.cpp">
+    <ClCompile Include="..\..\..\..\dev\cinder_0.8.5_vc2012\blocks\MsKinect\src\Kinect.cpp">
       <Filter>Blocks\Kinect</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +47,7 @@
     <ClInclude Include="..\include\PingPongFbo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\blocks\Cinder-MsKinect\src\Kinect.h">
+    <ClInclude Include="..\..\..\..\dev\cinder_0.8.5_vc2012\blocks\MsKinect\src\Kinect.h">
       <Filter>Blocks\Kinect</Filter>
     </ClInclude>
   </ItemGroup>
