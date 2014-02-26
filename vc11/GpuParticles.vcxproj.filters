@@ -19,6 +19,24 @@
     <Filter Include="Blocks\Kinect">
       <UniqueIdentifier>{584b7ded-235f-47f7-b6df-e4bdc1cf42e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Blocks\osc">
+      <UniqueIdentifier>{04d4e90f-aaa1-4a47-b462-a8d258106d73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\osc\src">
+      <UniqueIdentifier>{f750e799-ec8d-4929-85bd-4da77cbe4776}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\osc\src\ip">
+      <UniqueIdentifier>{5ccb7fc2-1cba-4f10-9127-257fb1555ad0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\osc\src\osc">
+      <UniqueIdentifier>{ab262136-d552-49cf-abda-28452f2eee7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\osc\src\ip\Win32">
+      <UniqueIdentifier>{84581788-889b-4182-bf02-f0e2be293afa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EE Core">
+      <UniqueIdentifier>{522690a2-b532-4717-9c84-b866a1034f87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GpuParticlesApp.cpp">
@@ -33,8 +51,50 @@
     <ClCompile Include="..\src\PingPongFbo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\dev\cinder_0.8.5_vc2012\blocks\MsKinect\src\Kinect.cpp">
+    <ClCompile Include="..\blocks\msKinect\src\Kinect.cpp">
       <Filter>Blocks\Kinect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\OscBundle.cpp">
+      <Filter>Blocks\osc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\OscListener.cpp">
+      <Filter>Blocks\osc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\OscMessage.cpp">
+      <Filter>Blocks\osc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\OscSender.cpp">
+      <Filter>Blocks\osc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\osc\OscOutboundPacketStream.cpp">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\osc\OscPrintReceivedElements.cpp">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\osc\OscReceivedElements.cpp">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\osc\OscTypes.cpp">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\ip\IpEndpointName.cpp">
+      <Filter>Blocks\osc\src\ip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\ip\win32\NetworkingUtils.cpp">
+      <Filter>Blocks\osc\src\ip\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blocks\OSC\src\ip\win32\UdpSocket.cpp">
+      <Filter>Blocks\osc\src\ip\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EE Core\GlobalLog.cpp">
+      <Filter>EE Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EE Core\GlobalSettings.cpp">
+      <Filter>EE Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EE Core\VisionCamera.cpp">
+      <Filter>EE Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -47,8 +107,77 @@
     <ClInclude Include="..\include\PingPongFbo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\dev\cinder_0.8.5_vc2012\blocks\MsKinect\src\Kinect.h">
+    <ClInclude Include="..\blocks\msKinect\src\Kinect.h">
       <Filter>Blocks\Kinect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\OscArg.h">
+      <Filter>Blocks\osc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\OscBundle.h">
+      <Filter>Blocks\osc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\OscListener.h">
+      <Filter>Blocks\osc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\OscMessage.h">
+      <Filter>Blocks\osc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\OscSender.h">
+      <Filter>Blocks\osc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\MessageMappingOscPacketListener.h">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscException.h">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscHostEndianness.h">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscOutboundPacketStream.h">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscPacketListener.h">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscPrintReceivedElements.h">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscReceivedElements.h">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\osc\OscTypes.h">
+      <Filter>Blocks\osc\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\ip\IpEndpointName.h">
+      <Filter>Blocks\osc\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\ip\NetworkingUtils.h">
+      <Filter>Blocks\osc\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\ip\PacketListener.h">
+      <Filter>Blocks\osc\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\ip\TimerListener.h">
+      <Filter>Blocks\osc\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blocks\OSC\src\ip\UdpSocket.h">
+      <Filter>Blocks\osc\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EE Core\EEMath.h">
+      <Filter>EE Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EE Core\GlobalLog.h">
+      <Filter>EE Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EE Core\GlobalSettings.h">
+      <Filter>EE Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EE Core\SettingsInterface.h">
+      <Filter>EE Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EE Core\VisionCamera.h">
+      <Filter>EE Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

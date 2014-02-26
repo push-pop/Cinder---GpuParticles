@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
@@ -50,7 +50,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(CINDER_DIR)\blocks\MsKinect\src;$(KINECTSDK10_DIR)\inc;..\include;$(CINDER_DIR)\include;$(CINDER_DIR)\boost</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\blocks\OpenCV\include;..\blocks\LeapMotion\src;..\EE Core;..\blocks\OSC\src;..\blocks\MsKinect\src;$(KINECTSDK10_DIR)\inc;..\include;$(CINDER_DIR)\include;$(CINDER_DIR)\boost</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NOMINMAX;_WIN32_WINNT=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -64,8 +64,8 @@
       <AdditionalIncludeDirectories>$(CINDER_DIR)\include;..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Kinect10.lib;cinder_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(CINDER_DIR)\lib;$(CINDER_DIR)\lib\msw;$(KINECTSDK10_DIR)\lib\x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Leapd.lib;opencv_imgproc243d.lib;opencv_core243d.lib;Kinect10.lib;cinder_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\blocks\LeapMotion\lib\msw\x86;$(CINDER_DIR)\lib;..\blocks\OpenCV\lib\vc11;$(CINDER_DIR)\lib\msw;$(KINECTSDK10_DIR)\lib\x86</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -76,7 +76,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;"..\..\..\\include";"..\..\..\\boost"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(KINECT_TOOLKIT_DIR)\inc;..\blocks\OpenCV\include;..\blocks\LeapMotion\src;..\EE Core;..\blocks\OSC\src;..\blocks\MsKinect\src;$(KINECTSDK10_DIR)\inc;..\include;$(CINDER_DIR)\include;$(CINDER_DIR)\boost</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;NOMINMAX;_WIN32_WINNT=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -88,11 +88,11 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>"..\..\..\\include";..\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(CINDER_DIR)\include;..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>cinder.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"..\..\..\\lib";"..\..\..\\lib\msw"</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_imgproc243.lib;opencv_core243.lib;Kinect10.lib;cinder.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\blocks\LeapMotion\lib\msw\x86;$(CINDER_DIR)\lib;..\blocks\OpenCV\lib\vc11;$(CINDER_DIR)\lib\msw;$(KINECTSDK10_DIR)\lib\x86</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
@@ -107,12 +107,49 @@
     <ResourceCompile Include="Resources.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\dev\cinder_0.8.5_vc2012\blocks\MsKinect\src\Kinect.cpp" />
+    <ClCompile Include="..\blocks\msKinect\src\Kinect.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\ip\IpEndpointName.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\ip\win32\NetworkingUtils.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\ip\win32\UdpSocket.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\OscBundle.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\OscListener.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\OscMessage.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\OscSender.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\osc\OscOutboundPacketStream.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\osc\OscPrintReceivedElements.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\osc\OscReceivedElements.cpp" />
+    <ClCompile Include="..\blocks\OSC\src\osc\OscTypes.cpp" />
+    <ClCompile Include="..\EE Core\GlobalLog.cpp" />
+    <ClCompile Include="..\EE Core\GlobalSettings.cpp" />
+    <ClCompile Include="..\EE Core\VisionCamera.cpp" />
     <ClCompile Include="..\src\GpuParticlesApp.cpp" />
     <ClCompile Include="..\src\PingPongFbo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\dev\cinder_0.8.5_vc2012\blocks\MsKinect\src\Kinect.h" />
+    <ClInclude Include="..\blocks\msKinect\src\Kinect.h" />
+    <ClInclude Include="..\blocks\OSC\src\ip\IpEndpointName.h" />
+    <ClInclude Include="..\blocks\OSC\src\ip\NetworkingUtils.h" />
+    <ClInclude Include="..\blocks\OSC\src\ip\PacketListener.h" />
+    <ClInclude Include="..\blocks\OSC\src\ip\TimerListener.h" />
+    <ClInclude Include="..\blocks\OSC\src\ip\UdpSocket.h" />
+    <ClInclude Include="..\blocks\OSC\src\OscArg.h" />
+    <ClInclude Include="..\blocks\OSC\src\OscBundle.h" />
+    <ClInclude Include="..\blocks\OSC\src\OscListener.h" />
+    <ClInclude Include="..\blocks\OSC\src\OscMessage.h" />
+    <ClInclude Include="..\blocks\OSC\src\OscSender.h" />
+    <ClInclude Include="..\blocks\OSC\src\osc\MessageMappingOscPacketListener.h" />
+    <ClInclude Include="..\blocks\OSC\src\osc\OscException.h" />
+    <ClInclude Include="..\blocks\OSC\src\osc\OscHostEndianness.h" />
+    <ClInclude Include="..\blocks\OSC\src\osc\OscOutboundPacketStream.h" />
+    <ClInclude Include="..\blocks\OSC\src\osc\OscPacketListener.h" />
+    <ClInclude Include="..\blocks\OSC\src\osc\OscPrintReceivedElements.h" />
+    <ClInclude Include="..\blocks\OSC\src\osc\OscReceivedElements.h" />
+    <ClInclude Include="..\blocks\OSC\src\osc\OscTypes.h" />
+    <ClInclude Include="..\EE Core\EEMath.h" />
+    <ClInclude Include="..\EE Core\GlobalLog.h" />
+    <ClInclude Include="..\EE Core\GlobalSettings.h" />
+    <ClInclude Include="..\EE Core\SettingsInterface.h" />
+    <ClInclude Include="..\EE Core\VisionCamera.h" />
     <ClInclude Include="..\include\GpuParticlesApp.h" />
     <ClInclude Include="..\include\PingPongFbo.h" />
     <ClInclude Include="..\include\Resources.h" />

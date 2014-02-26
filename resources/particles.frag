@@ -10,7 +10,11 @@ uniform sampler2D velocities;
 uniform vec3 newVert;
 uniform int newVertIdx;
 
-uniform vec3 attractorPos;
+uniform vec3 attractors[20];
+uniform int numAttractors;
+
+//uniform vec3 attractor3;
+
 varying vec4 texCoord;
 
 float a = 28;
@@ -25,16 +29,33 @@ float invmass = texture2D( positions, texCoord.st).a;
 int idx = int(texture2D( velocities, texCoord.st ).a);
 
     float h = 1.0; //time step
-    vec3 f = attractorPos-p0; //force
-    float fMag = length(f); //force magnitude
-    vec3 v1 = v0 + h * 0.05 * invmass * f/(fMag*fMag + EPS); //velocity update
-    v1 = v1 - 0.08 * v1; //friction
 
- //lorenz attractor
-   //float vx1 = a*(p0.y - p0.x);
-   //float vy1 = p0.x*(b - p0.z) - p0.y;
-   //float vz1 = p0.x*p0.y - c*p0.z;
-   //vec3 v1 = vec3(vx1, vy1, vz1);
+	 vec3 v1 = v0;
+		for(int i = 0; i < numAttractors; i++)
+		{
+		   vec3 f = attractors[i] - p0; //force
+		   float fMag = length(f);  //force magnitude
+		   vec3 v =  h * 0.05 * invmass * f/(fMag*fMag + EPS); //velocity component for each attractor
+
+		   v1 += v;
+		}
+
+
+
+    //vec3 f1 = attractor-p0; //force
+	//vec3 f2 = attractor2-p0;
+	//vec3 f3 = attractor3-p0;
+
+    
+
+	//float fMag1 = length(f1); //force magnitude
+	//float fMag2 = length(f2);
+	
+
+   // v1 = v0 + h * 0.05 * invmass * f1/(fMag1*fMag1 + EPS); //velocity update
+	//vec3 v2 = v1 + h * 0.05 * invmass * f2/(fMag2*fMag2 + EPS); //velocity update
+    v1 = v1 - 0.04 * v1; //friction
+
 
     vec3 p1	= p0 + h * v1; //(symplectic euler) position update
    

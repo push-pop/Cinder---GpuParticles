@@ -1,37 +1,37 @@
 /*
-* 
+*
 * Copyright (c) 2013, Ban the Rewind
 * All rights reserved.
-* 
-* Redistribution and use in source and binary forms, with or 
-* without modification, are permitted provided that the following 
+*
+* Redistribution and use in source and binary forms, with or
+* without modification, are permitted provided that the following
 * conditions are met:
-* 
-* Redistributions of source code must retain the above copyright 
+*
+* Redistributions of source code must retain the above copyright
 * notice, this list of conditions and the following disclaimer.
-* Redistributions in binary form must reproduce the above copyright 
-* notice, this list of conditions and the following disclaimer in 
-* the documentation and/or other materials provided with the 
+* Redistributions in binary form must reproduce the above copyright
+* notice, this list of conditions and the following disclaimer in
+* the documentation and/or other materials provided with the
 * distribution.
-* 
-* Neither the name of the Ban the Rewind nor the names of its 
-* contributors may be used to endorse or promote products 
-* derived from this software without specific prior written 
+*
+* Neither the name of the Ban the Rewind nor the names of its
+* contributors may be used to endorse or promote products
+* derived from this software without specific prior written
 * permission.
-* 
-* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
-* "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
-* LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
-* FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE 
-* COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+* "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+* LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+* FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+* COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
 * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-* BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
-* CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
-* STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-* ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+* BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+* CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+* STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+* ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-* 
+*
 */
 
 #pragma once
@@ -87,7 +87,7 @@ namespace KinectSdk
 		//! Returns index of start joint.
 		JointName				getStartJoint() const;
 	protected:
-		Bone( const Vector4& position, const _NUI_SKELETON_BONE_ORIENTATION& bone );
+		Bone(const Vector4& position, const _NUI_SKELETON_BONE_ORIENTATION& bone);
 		ci::Matrix44f	mAbsRotMat;
 		ci::Quatf		mAbsRotQuat;
 		JointName		mJointStart;
@@ -113,19 +113,19 @@ namespace KinectSdk
 		//! Returns resolution of depth image.
 		ImageResolution		getDepthResolution() const;
 		//! Returns size of depth image.
-		const ci::Vec2i&	getDepthSize() const; 
+		const ci::Vec2i&	getDepthSize() const;
 		//! Returns unique ID for this device.
 		const std::string&	getDeviceId() const;
 		//! Returns 0-index for this device.
 		int32_t				getDeviceIndex() const;
 		//! Returns resolution of video image.
-		ImageResolution		getColorResolution() const; 
+		ImageResolution		getColorResolution() const;
 		//! Returns size of video image.
-		const ci::Vec2i&	getColorSize() const; 
+		const ci::Vec2i&	getColorSize() const;
 		//! Returns true if depth tracking is enabled.
 		bool				isDepthEnabled() const;
 		//! Returns true if background remove is enabled.
-		bool				isNearModeEnabled() const; 
+		bool				isNearModeEnabled() const;
 		//! Returns true if seated mode is enabled.
 		bool				isSeatedModeEnabled() const;
 		//! Returns true if skeleton tracking is enabled.
@@ -136,24 +136,24 @@ namespace KinectSdk
 		bool				isUserTrackingEnabled() const;
 
 		//! Enables depth tracking.
-		DeviceOptions&		enableDepth( bool enable = true );
+		DeviceOptions&		enableDepth(bool enable = true);
 		//! Enables near mode (Kinect for Windows only).
-		DeviceOptions&		enableNearMode( bool enable = true ); 
+		DeviceOptions&		enableNearMode(bool enable = true);
 		/*! Enables skeleton tracking. Set \a seatedMode to true to support seated skeletons.
 		Only available on first device running at 320x240. */
-		DeviceOptions&		enableSkeletonTracking( bool enable = true, bool seatedMode = false );
+		DeviceOptions&		enableSkeletonTracking(bool enable = true, bool seatedMode = false);
 		//! Enables color video stream.
-		DeviceOptions&		enableColor( bool enable = true );
+		DeviceOptions&		enableColor(bool enable = true);
 		/*! Enables user tracking. Only available on first device running at 320x240. */
-		DeviceOptions&		enableUserTracking( bool enable = true );
+		DeviceOptions&		enableUserTracking(bool enable = true);
 		//! Sets resolution of depth image.
-		DeviceOptions&		setDepthResolution( const ImageResolution& resolution = ImageResolution::NUI_IMAGE_RESOLUTION_320x240 ); 
+		DeviceOptions&		setDepthResolution(const ImageResolution& resolution = ImageResolution::NUI_IMAGE_RESOLUTION_320x240);
 		//! Starts device with this unique ID.
-		DeviceOptions&		setDeviceId( const std::string& id = "" ); 
+		DeviceOptions&		setDeviceId(const std::string& id = "");
 		//! Starts device with this 0-index.
-		DeviceOptions&		setDeviceIndex( int32_t index = 0 ); 
+		DeviceOptions&		setDeviceIndex(int32_t index = 0);
 		//! Sets resolution of video image.
-		DeviceOptions&		setColorResolution( const ImageResolution& resolution = ImageResolution::NUI_IMAGE_RESOLUTION_640x480 ); 
+		DeviceOptions&		setColorResolution(const ImageResolution& resolution = ImageResolution::NUI_IMAGE_RESOLUTION_640x480);
 
 
 	private:
@@ -182,7 +182,7 @@ namespace KinectSdk
 	{
 	public:
 
-		/*! Skeleton smoothing enumeration. Smoother transform improve skeleton accuracy, 
+		/*! Skeleton smoothing enumeration. Smoother transform improve skeleton accuracy,
 		but increase latency. */
 		enum : uint_fast8_t
 		{
@@ -197,39 +197,39 @@ namespace KinectSdk
 		} typedef DepthTreatment;
 
 		//! Maximum number of devices supported by the Kinect SDK.
-		static const int32_t			MAXIMUM_DEVICE_COUNT	= 8;
+		static const int32_t			MAXIMUM_DEVICE_COUNT = 8;
 		//! Maximum device tilt angle in positive or negative degrees.
-		static const int32_t			MAXIMUM_TILT_ANGLE		= 28;
+		static const int32_t			MAXIMUM_TILT_ANGLE = 28;
 
 		~Kinect();
 
 		//! Adds depth image callback
-		/*	template<typename T, typename Y> 
-		inline uint32_t					addDepthCallback( T callback, Y *callbackObject )
-		{
-		uint32_t id = mCallbacks.empty() ? 0 : mCallbacks.rbegin()->first + 1;
-		mCallbacks.insert( std::make_pair( id, CallbackRef( new Callback( mSignalDepth.connect( std::bind( callback, callbackObject, std::_1, std::_2 ) ) ) ) ) );
-		return id;
-		}
-		*/	//! Adds skeleton tracking callback.
-
-		template<typename T, typename Y> 
-		inline uint32_t					addSkeletonTrackingCallback( T callback, Y *callbackObject )
+		template<typename T, typename Y>
+		inline uint32_t					addDepthCallback(T callback, Y *callbackObject)
 		{
 			uint32_t id = mCallbacks.empty() ? 0 : mCallbacks.rbegin()->first + 1;
-			mCallbacks.insert( std::make_pair( id, CallbackRef( new Callback( mSignalSkeleton.connect( std::bind( callback, callbackObject, std::_1, std::_2 ) ) ) ) ) );
+			mCallbacks.insert(std::make_pair(id, CallbackRef(new Callback(mSignalDepth.connect(std::bind(callback, callbackObject, std::_1, std::_2))))));
+			return id;
+		}
+		//! Adds skeleton tracking callback.
+
+		template<typename T, typename Y>
+		inline uint32_t					addSkeletonTrackingCallback(T callback, Y *callbackObject)
+		{
+			uint32_t id = mCallbacks.empty() ? 0 : mCallbacks.rbegin()->first + 1;
+			mCallbacks.insert(std::make_pair(id, CallbackRef(new Callback(mSignalSkeleton.connect(std::bind(callback, callbackObject, std::_1, std::_2))))));
 			return id;
 		}
 		//! Adds video tracking callback.
-		template<typename T, typename Y> 
-		inline uint32_t					addColorCallback( T callback, Y *callbackObject )
+		template<typename T, typename Y>
+		inline uint32_t					addColorCallback(T callback, Y *callbackObject)
 		{
 			uint32_t id = mCallbacks.empty() ? 0 : mCallbacks.rbegin()->first + 1;
-			mCallbacks.insert( std::make_pair( id, CallbackRef( new Callback( mSignalColor.connect( std::bind( callback, callbackObject, std::_1, std::_2 ) ) ) ) ) );
+			mCallbacks.insert(std::make_pair(id, CallbackRef(new Callback(mSignalColor.connect(std::bind(callback, callbackObject, std::_1, std::_2))))));
 			return id;
 		}
 		//! Removes callback.
-		void							removeCallback( uint32_t id );
+		void							removeCallback(uint32_t id);
 
 		/**********************************************************************************************//**
 																										* @fn	bool Kinect::updateDepth(ci::Surface16u* dst);
@@ -247,31 +247,31 @@ namespace KinectSdk
 		bool updateDepth(ci::Surface16u* dst);
 
 		//! Creates pointer to instance of Kinect
-		static KinectRef				create();		
+		static KinectRef				create();
 		//! Returns number of Kinect devices.
 		static int32_t					getDeviceCount();
 		//! Returns use color for user ID \a id.
-		static ci::Colorf				getUserColor( uint32_t id );
+		static ci::Colorf				getUserColor(uint32_t id);
 
 		//! Start capturing using settings specified in \a deviceOptions .
-		void							start( const DeviceOptions& deviceOptions = DeviceOptions() );
+		void							start(const DeviceOptions& deviceOptions = DeviceOptions());
 		//! Stop capture.
 		void							stop();
 		//! Sends any new data to callbacks.
 		void							update();
 
 		//! Convert depth image to binary. \a invertImage to flip black and white. Default is false.
-		void							enableBinaryMode( bool enable = true, bool invertImage = false );
+		void							enableBinaryMode(bool enable = true, bool invertImage = false);
 		//! Enables user colors. Depth tracking at 320x240 or less must be enabled. Default is true.
-		void							enableUserColor( bool enable = true );
+		void							enableUserColor(bool enable = true);
 		//! Enables verbose error reporting in debug console. Default is true.
-		void							enableVerbose( bool enable = true );
+		void							enableVerbose(bool enable = true);
 
 		//! Remove background for better user tracking.
-		void							removeBackground( bool remove = true );
+		void							removeBackground(bool remove = true);
 
 		//! Returns depth value as 0.0 - 1.0 float for pixel at \a pos.
-		float							getDepthAt( const ci::Vec2i& v ) const;
+		float							getDepthAt(const ci::Vec2i& v) const;
 		//! Returns frame rate of depth image processing.
 		float							getDepthFrameRate() const;
 		//! Returns options object for this device.
@@ -290,37 +290,40 @@ namespace KinectSdk
 		bool							isCapturing() const;
 
 		//! Flips input horizontally if \a flipped is true.
-		void							setFlipped( bool flipped = true );
+		void							setFlipped(bool flipped = true);
 		//! Returns true if input is flipped.
 		bool							isFlipped() const;
 
 		//! Returns pixel location of skeleton position in depth image.
-		ci::Vec2i						getSkeletonDepthPos( const ci::Vec3f& v );
+		ci::Vec2i						getSkeletonDepthPos(const ci::Vec3f& v);
 		//! Returns pixel location of skeleton position in color image.
-		ci::Vec2i						getSkeletonColorPos( const ci::Vec3f& v );
+		ci::Vec2i						getSkeletonColorPos(const ci::Vec3f& v);
 
 		//! Returns pixel location of color position in depth image.
-		ci::Vec2i						getColorDepthPos( const ci::Vec2i& v );
+		ci::Vec2i						getColorDepthPos(const ci::Vec2i& v);
 
 		//! Sets device angle to \a degrees. Default is 0.
-		void							setTilt( int32_t degrees = 0 );
+		void							setTilt(int32_t degrees = 0);
 
 		//! Return skeleton transform type.
 		int_fast8_t						getTransform() const;
 		//! Sets skeleton transform type.
-		void							setTransform( int_fast8_t transform = TRANSFORM_DEFAULT );
+		void							setTransform(int_fast8_t transform = TRANSFORM_DEFAULT);
 
-		void							setMinReliableDepth( USHORT minReliableDepth );
+		void							setMinReliableDepth(USHORT minReliableDepth);
 		USHORT							getMinReliableDepth();
 
-		void							setMaxReliableDepth( USHORT maxReliableDepth );
+		void							setMaxReliableDepth(USHORT maxReliableDepth);
 		USHORT							getMaxReliableDepth();
 
-		void							setDepthTreatment( DepthTreatment treatment );
-		DepthTreatment					getDepthTreatment( );
+		void							setDepthTreatment(DepthTreatment treatment);
+		DepthTreatment					getDepthTreatment();
 
 		bool							mReliableDepthChanged;
 		bool							mDepthTreatmentChanged;
+
+		ci::Surface16u					getDepthSurface() { return mDepthSurface; }
+
 
 	protected:
 		typedef boost::signals2::connection			Callback;
@@ -331,7 +334,7 @@ namespace KinectSdk
 
 		Kinect();
 
-		template <typename T> 
+		template <typename T>
 		struct PixelT
 		{
 			T r;
@@ -345,18 +348,19 @@ namespace KinectSdk
 		{
 			long x;
 			long y;
+			long d;
 		};
 
 		static std::vector<ci::Colorf>	sUserColors;
 		static std::vector<ci::Colorf>	getUserColors();
 
-		void							init( bool reset = false );
+		void							init(bool reset = false);
 
 		bool							mCapture;
 
-		boost::signals2::signal<void ( ci::Surface16u, const DeviceOptions& )>			mSignalDepth;
-		boost::signals2::signal<void ( std::vector<Skeleton>, const DeviceOptions& )>	mSignalSkeleton;
-		boost::signals2::signal<void ( ci::Surface8u, const DeviceOptions& )>			mSignalColor;
+		boost::signals2::signal<void(ci::Surface16u, const DeviceOptions&)>			mSignalDepth;
+		boost::signals2::signal<void(std::vector<Skeleton>, const DeviceOptions&)>	mSignalSkeleton;
+		boost::signals2::signal<void(ci::Surface8u, const DeviceOptions&)>			mSignalColor;
 		CallbackList					mCallbacks;
 
 		DeviceOptions					mDeviceOptions;
@@ -383,16 +387,20 @@ namespace KinectSdk
 
 		ci::Surface16u					mDepthSurface;
 
+
 		std::vector<Skeleton>*			mSkeletons;
 		std::vector<Skeleton>*			currSkeletons;
 		ci::Surface8u*					mColorSurface;
 		ci::Surface8u*					currColorSurface;
+		ci::Surface16u*					currDepthSurface;
 
 		INuiSensor*						mSensor;
+		INuiCoordinateMapper*			mCoordinateMapper;
+
 		double							mTiltRequestTime;
 
 		bool							mIsSkeletonDevice;
-		Point							mPoints[ NUI_SKELETON_POSITION_COUNT ];
+		Point							mPoints[NUI_SKELETON_POSITION_COUNT];
 
 		void*							mDepthStreamHandle;
 		void*							mColorStreamHandle;
@@ -407,12 +415,12 @@ namespace KinectSdk
 
 		Pixel16u*						mRgbDepth;
 		Pixel*							mRgbColor;
-		void							pixelToDepthSurface( BYTE* buffer, UINT size, BOOL nearMode, DepthTreatment treatment );
-		void							pixelToColorSurface( uint8_t* buffer );
+		void							pixelToDepthSurface(BYTE* buffer, UINT size, BOOL nearMode, DepthTreatment treatment);
+		void							pixelToColorSurface(uint8_t* buffer);
 
-		Pixel16u						depthPixelToColorPixel( NUI_DEPTH_IMAGE_PIXEL *pixel);
+		Pixel16u						depthPixelToColorPixel(NUI_DEPTH_IMAGE_PIXEL *pixel);
 
-		BYTE							GetIntensity( int depth );
+		BYTE							GetIntensity(int depth);
 
 		double							mReadTimeDepth;
 		double							mReadTimeSkeletons;
@@ -420,13 +428,13 @@ namespace KinectSdk
 
 		void							deactivateUsers();
 		volatile int32_t				mUserCount;
-		bool							mActiveUsers[ NUI_SKELETON_COUNT ];
+		bool							mActiveUsers[NUI_SKELETON_COUNT];
 
-		void							error( long hr );
+		void							error(long hr);
 		bool							mVerbose;
-		static void						trace( const std::string& message );
+		static void						trace(const std::string& message);
 
-		friend void CALLBACK			deviceStatus( long hr, const WCHAR* instanceName, const WCHAR* deviceId, void* data );
+		friend void CALLBACK			deviceStatus(long hr, const WCHAR* instanceName, const WCHAR* deviceId, void* data);
 
 		void							InitDepthColorTable();
 
@@ -439,11 +447,12 @@ namespace KinectSdk
 		std::mutex mColorMutex_;
 		std::mutex mDepthMutex_;
 		std::mutex mSkeletonMutex_;
+		std::mutex mDepthPointMutex_;
 
 		void swapDepth();
 		void swapColor();
 		void swapSkeleton();
-		void processSkeletons(_NUI_SKELETON_FRAME skeletonFrame, long hr );
+		void processSkeletons(_NUI_SKELETON_FRAME skeletonFrame, long hr);
 
 		Pixel16u			mDepthColorTable[MAX_PLAYER_INDEX + 1][USHRT_MAX + 1];
 		static const BYTE	mIntensityShiftR[MAX_PLAYER_INDEX + 1];
@@ -451,7 +460,7 @@ namespace KinectSdk
 		static const BYTE	mIntensityShiftB[MAX_PLAYER_INDEX + 1];
 
 		inline void			SetColor(UINT* pColor, BYTE red, BYTE green, BYTE blue, BYTE alpha = 255);
-		USHORT				MapColor( USHORT depth, USHORT minDepth, USHORT maxDepth );
+		USHORT				MapColor(USHORT depth, USHORT minDepth, USHORT maxDepth);
 
 
 
