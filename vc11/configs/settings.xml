@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<general>
+	<variable variable="500" type="int" varName="Contour_MinArea" classDesciptor="VisionCamera"/>
+	<variable variable="10" type="int" varName="Contour_SampleRate" classDesciptor="VisionCamera"/>
+	<variable variable="1" type="int" varName="Dilate_NumIterations" classDesciptor="VisionCamera"/>
+	<variable variable="3" type="int" varName="Erode_NumIterations" classDesciptor="VisionCamera"/>
+	<variable variable="6583" type="int" varName="Initial_Max_Depth" classDesciptor="VisionCamera"/>
+	<variable variable="0" type="int" varName="Initial_Min_Depth" classDesciptor="VisionCamera"/>
+	<variable variable="0" type="float" varName="PerspectiveQuad_0_x" classDesciptor="VisionCamera"/>
+	<variable variable="0" type="float" varName="PerspectiveQuad_0_y" classDesciptor="VisionCamera"/>
+	<variable variable="1" type="float" varName="PerspectiveQuad_1_x" classDesciptor="VisionCamera"/>
+	<variable variable="0" type="float" varName="PerspectiveQuad_1_y" classDesciptor="VisionCamera"/>
+	<variable variable="1" type="float" varName="PerspectiveQuad_2_x" classDesciptor="VisionCamera"/>
+	<variable variable="1" type="float" varName="PerspectiveQuad_2_y" classDesciptor="VisionCamera"/>
+	<variable variable="0" type="float" varName="PerspectiveQuad_3_x" classDesciptor="VisionCamera"/>
+	<variable variable="1" type="float" varName="PerspectiveQuad_3_y" classDesciptor="VisionCamera"/>
+	<variable variable="12" type="float" varName="Theshold_HighCutoff" classDesciptor="VisionCamera"/>
+	<variable variable="0" type="float" varName="Theshold_LowCutoff" classDesciptor="VisionCamera"/>
+	<variable variable="0" type="bool" varName="clampUnreliableDepths" classDesciptor="VisionCamera"/>
+</general>
+
